@@ -1,0 +1,12 @@
+﻿@model TrialLoginAndRegistrationWeb.Models.Clothes;
+
+
+<form asp-action="Edit" asp-controller="Clothes" asp-route-id="@Model.Clothes_ID">
+    <h2>@Model.Name</h2>
+        <section>
+            <img src="@Model.FotoBase64" style="max-width: 400px; max-height: 400px;" />
+            <p>@Model.Price грн</p>
+            <p>@Model.Color</p>
+        </section>
+    <input type="submit" value="Добавити" class="btn btn-primary btn-sm"></input>
+</form>

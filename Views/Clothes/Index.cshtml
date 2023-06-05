@@ -1,0 +1,57 @@
+﻿@model IEnumerable<TrialLoginAndRegistrationWeb.Models.Clothes>
+
+    <h2>Список одягу</h2>
+<div id="ClothesIndex" class="row">
+    @foreach (var item in Model)
+    {
+        <div class="column">
+                <a class="link" asp-action="ViewClothes" asp-controller="Clothes" asp-route-id="@item.Clothes_ID">
+                    <div class="Clothes">
+                        <img src="@item.FotoBase64" style="width: 250px; height: 350px; object-fit: cover; border-radius: 10px;" />
+                        <p class="NameClothes">@item.Name</p>
+                        <p class="PriceClothes">@item.Price</p>
+                    </div>
+                </a>
+        </div>
+    }
+    
+
+</div>
+@*
+<p><a asp-action="Create" class="btn btn-primary btn-sm">Добавити новий одяг</a></p>
+<table class="table">
+        <tr>
+        <th>ID</th>
+        <th>Назва</th>
+        <th>Категорія</th>
+        <th>Підкатегорія</th>
+        <th>Розмір</th>
+        <th>Колір</th>
+        <th>Бренд</th>
+        <th>Ціна</th>
+        </tr>
+        @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.Clothes_ID</th>
+            <td>@item.Name</td>
+            <td>@item.Categories</td>
+            <td>@item.SubCategories</td>
+            <td>@item.Size</td>
+            <td>@item.Color</td>
+            <td>@item.Brand</td>
+            <td>@item.Price</td>
+            <td><img src="@item.FotoBase64" style="max-width: 200px; max-height: 200px;" /></td>
+            @*<td><img src="@Url.Action("GetImage", "Clothes", new { id = item.Clothes_ID })" /></td>*
+            <td>
+                <form asp-controller="Clothes" asp-action="Delete" method="post" asp-route-id="@item.Clothes_ID">
+                    <a class="btn btn-primary btn-sm" asp-controller="Clothes" asp-action="Edit" asp-route-id="@item.Clothes_ID">Edit</a>
+                    <input class="btn btn-danger btn-sm" type="submit" value="Delete" />
+                </form>
+            </td>
+        </tr>
+    }
+  
+
+</table>
+*@ 

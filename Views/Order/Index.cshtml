@@ -1,0 +1,38 @@
+﻿@model IEnumerable<TrialLoginAndRegistrationWeb.Models.Order>;
+
+
+
+<table class="table">
+        <tr>
+        <th>Order_ID</th>
+        <th>Order_UserID</th>
+        <th>Order_ClothesID</th>
+        <th>Order_Date</th>
+        <th>Order_RentDate</th>
+        <th>Order_PhoneNumber</th>
+        <th>Order_Comment</th>
+        <th>Order_Sum</th>
+        <th>Order_Perfomance</th>
+        </tr>
+        @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.Order_ID</th>
+            <td>@item.Order_UserID</td>
+            <td>@item.Order_ClothesID</td>
+            <td>@item.Order_Date</td>
+            <td>@item.Order_RentDate</td>
+            <td>@item.Order_PhoneNumber</td>
+            <td>@item.Order_Comment</td>
+            <td>@item.Order_Sum</td>
+            <td>@item.Order_Perfomance</td>
+            <td>
+                <form asp-controller="Order" asp-action="Delete" method="post" asp-route-id="@item.Order_ID">
+                    <input class="btn btn-danger btn-sm" type="submit" value="Delete"/>
+                </form>
+            </td>
+        </tr>
+    }
+  
+
+</table>

@@ -1,0 +1,23 @@
+﻿@model TrialLoginAndRegistrationWeb.Models.Clothes;
+
+
+<form asp-action="ViewClothes" asp-controller="Clothes" asp-route-id="@Model.Clothes_ID">
+    <h2>@Model.Name</h2>
+    <hr>
+    <div id="ViewClothes" class="column">
+        <img src="@Model.FotoBase64" style="max-width: 500px; max-height: 500px; border-radius: 30px;" />
+    </div>
+    <div id="ViewClothes" class="column">
+        <p>Категорія: @Model.Categories</p>
+        <p>Під категорія: @Model.SubCategories</p>
+        <p>Колір: @Model.Color</p>
+        <p>Бренд: @Model.Brand</p>
+        <p>Ціна за прокат: @Model.Price</p>
+        @*
+            <a class="btn btn-primary btn-sm" asp-action="Booking" asp-controller="Order" asp-route-id="@Model.Clothes_ID">Забронювати</a>
+        *@
+        <a class="btn btn-primary btn-sm buttonBooking" asp-action="Booking" asp-controller="Order" asp-route-id="@Model.Clothes_ID">Забронювати</a>
+    </div>
+            
+            
+</form>
